@@ -260,7 +260,7 @@
         UILabel * endLabel = dayLabels[endIndex - 1];
         UIView * drawView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(startLabel.frame), 0, CGRectGetMaxX(endLabel.frame) - CGRectGetMinX(startLabel.frame), 20)];
         drawView.center = CGPointMake(drawView.center.x , startLabel.center.y + CGRectGetMinY(calendarView.frame));
-        drawView.backgroundColor = [UIColor yellowColor]
+        drawView.backgroundColor = [UIColor yellowColor];
         drawView.layer.cornerRadius = 10;
         drawView.clipsToBounds = YES;
         [self addSubview:drawView];
