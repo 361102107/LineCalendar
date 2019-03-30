@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
+
 
 @interface LineCalendar : UIView
 @property(nonatomic,assign)BOOL isShowToday;
@@ -13,4 +13,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
+
