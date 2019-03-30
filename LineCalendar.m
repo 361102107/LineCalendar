@@ -35,7 +35,7 @@
         currentDate =  [self getCurrentDate];
     }
     self.clipsToBounds = YES;
-    dateLabel =[[UILabel alloc] initWithFrame:CGRectMake(0, kViewSize(15), 100, kViewSize(12))];
+    dateLabel =[[UILabel alloc] initWithFrame:CGRectMake(0, 15, 100, 12)];
     dateLabel.center = CGPointMake(CGRectGetWidth(self.frame)/2, dateLabel.center.y);
     dateLabel.textAlignment = NSTextAlignmentCenter;
     dateLabel.font = [UIFont systemFontOfSize:12];
@@ -60,13 +60,13 @@
     
     
     NSInteger sumWidth = CGRectGetWidth(self.frame) - 60;
-    NSInteger labelWidth = kViewSize(20);
+    NSInteger labelWidth = 20;
     NSInteger spaceWidth = (sumWidth - 7 * labelWidth) / 6.0;
     NSArray * names = @[@"日",@"一",@"二",@"三",@"四",@"五",@"六"];
     for (int i = 0; i < names.count; i ++){
         UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(30 + (spaceWidth + labelWidth) * (CGFloat)i, 40 , labelWidth, labelWidth)];
         label.textAlignment =  NSTextAlignmentCenter;
-        label.textColor = [UIColor gray];
+        label.textColor = [UIColor grayColor];
         label.text = names[i];
         label.font = [UIFont systemFontOfSize:9];
         [self addSubview:label];
@@ -80,7 +80,7 @@
 - (void)drawDay{
     NSDate * todayDate = [self getCurrentDate];
     NSInteger sumWidth = CGRectGetWidth(self.frame) - 60;
-    NSInteger labelWidth = kViewSize(20);
+    NSInteger labelWidth = 20;
     NSInteger spaceWidth = (sumWidth - 7 * labelWidth) / 6.0;
     NSInteger startIndex = [self getFirstDayWeek];
     NSInteger sumDays = [self getMonthDaysWithDate:currentDate];
@@ -133,7 +133,7 @@
     if(_isShowToday){
         todayLabel.layer.cornerRadius =  10;
         todayLabel.textColor = [UIColor whiteColor];
-        todayLabel.backgroundColor =  [UIColor orange];
+        todayLabel.backgroundColor =  [UIColor orangeColor];
         todayLabel.clipsToBounds = YES;
     }
 }
@@ -260,7 +260,7 @@
         UILabel * endLabel = dayLabels[endIndex - 1];
         UIView * drawView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(startLabel.frame), 0, CGRectGetMaxX(endLabel.frame) - CGRectGetMinX(startLabel.frame), 20)];
         drawView.center = CGPointMake(drawView.center.x , startLabel.center.y + CGRectGetMinY(calendarView.frame));
-        drawView.backgroundColor = [UIColor yellow]
+        drawView.backgroundColor = [UIColor yellowColor]
         drawView.layer.cornerRadius = 10;
         drawView.clipsToBounds = YES;
         [self addSubview:drawView];
