@@ -66,7 +66,7 @@
     for (int i = 0; i < names.count; i ++){
         UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(30 + (spaceWidth + labelWidth) * (CGFloat)i, 40 , labelWidth, labelWidth)];
         label.textAlignment =  NSTextAlignmentCenter;
-        label.textColor = UIColorRGB(100, 100, 100);;
+        label.textColor = [UIColor gray];
         label.text = names[i];
         label.font = [UIFont systemFontOfSize:9];
         [self addSubview:label];
@@ -133,7 +133,7 @@
     if(_isShowToday){
         todayLabel.layer.cornerRadius =  10;
         todayLabel.textColor = [UIColor whiteColor];
-        todayLabel.backgroundColor =  UIColorRGB(254, 76, 76);
+        todayLabel.backgroundColor =  [UIColor orange];
         todayLabel.clipsToBounds = YES;
     }
 }
@@ -260,7 +260,7 @@
         UILabel * endLabel = dayLabels[endIndex - 1];
         UIView * drawView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(startLabel.frame), 0, CGRectGetMaxX(endLabel.frame) - CGRectGetMinX(startLabel.frame), 20)];
         drawView.center = CGPointMake(drawView.center.x , startLabel.center.y + CGRectGetMinY(calendarView.frame));
-        drawView.backgroundColor = UIColorRGB(254, 76, 76);
+        drawView.backgroundColor = [UIColor yellow]
         drawView.layer.cornerRadius = 10;
         drawView.clipsToBounds = YES;
         [self addSubview:drawView];
