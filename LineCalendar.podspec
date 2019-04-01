@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "LineCalendar"
-  s.version      = "1.0.1"
+  s.version      = "1.1.1"
   s.summary      = "A calendar that supports connectivity."
 
   # This description is used to generate tags and improve search results.
@@ -106,7 +106,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
+   s.resources = "LineCalendar.bundle"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
