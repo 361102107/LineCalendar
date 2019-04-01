@@ -93,19 +93,21 @@
         
         if(i >= startIndex - 1){
             label.text = [NSString stringWithFormat:@"%d",j];
-            j++;
-            [dayLabels addObject:label];
-        }
-        //判断是否是当天,获取到当天的label
-        if([[self getStringFromeDate:currentDate] isEqualToString:[self getStringFromeDate:todayDate]]){
-            NSInteger dayInt = [self getIntergerFromDate:currentDate];
-            if(dayInt == i){
-                label.text = [NSString stringWithFormat:@"%d",i];
-                todayLabel = label;
-                self.isShowToday = _isShowToday ? YES : NO;
-            }
             
+            [dayLabels addObject:label];
+            
+            //判断是否是当天,获取到当天的label
+            if([[self getStringFromeDate:currentDate] isEqualToString:[self getStringFromeDate:todayDate]]){
+                NSInteger dayInt = [self getIntergerFromDate:currentDate];
+                if(dayInt == j){
+                    label.text = [NSString stringWithFormat:@"%d",j];
+                    todayLabel = label;
+                    self.isShowToday = _isShowToday ? YES : NO;
+                }
+            }
+            j++;
         }
+        
         
     }
     dateLabel.text = [self getYearMonthWithDate:currentDate];
@@ -201,6 +203,8 @@
 
 - (NSString *)getStringFromeDate:(NSDate *)date{
     NSDateFormatter * returnFormatter = [[NSDateFormatter alloc] init];
+    [returnFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+
     [returnFormatter setDateFormat:@"yyyy-MM-dd"];
     return [returnFormatter stringFromDate:date];
 }
