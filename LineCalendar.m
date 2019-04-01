@@ -44,7 +44,7 @@
     _lastBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _lastBtn.frame =CGRectMake(CGRectGetMinX(dateLabel.frame) - 10 - 10, 0, 10, 10);
     _lastBtn.center =  CGPointMake(_lastBtn.center.x, dateLabel.center.y);
-    [_lastBtn setImage:[UIImage imageNamed:@"calendarNext"] forState:UIControlStateNormal];
+    [_lastBtn setImage:[UIImage imageNamed:RKOTextViewSrcName(@"calendarNext.png")]?:[UIImage imageNamed:RKOTextViewFrameworkSrcName(@"calendarNext.png")] forState:UIControlStateNormal];
     _lastBtn.transform = CGAffineTransformMakeRotation(M_PI);
     [_lastBtn addTarget:self action:@selector(clickLastBtn:) forControlEvents:UIControlEventTouchUpInside];
     _lastBtn.alpha = 0;
@@ -53,7 +53,7 @@
     _nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _nextBtn.frame =CGRectMake(CGRectGetMaxX(dateLabel.frame) + 10, 0, 10, 10);
     _nextBtn.center =  CGPointMake(_nextBtn.center.x, dateLabel.center.y);
-    [_nextBtn setImage:[UIImage imageNamed:@"calendarNext"] forState:UIControlStateNormal];
+    [_nextBtn setImage:[UIImage imageNamed:RKOTextViewSrcName(@"calendarNext.png")]?:[UIImage imageNamed:RKOTextViewFrameworkSrcName(@"calendarNext.png")] forState:UIControlStateNormal];
     [_nextBtn addTarget:self action:@selector(clickNextBtn:) forControlEvents:UIControlEventTouchUpInside];
     _nextBtn.alpha =  0;
     [self addSubview:_nextBtn];
