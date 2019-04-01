@@ -87,7 +87,7 @@
     for (int i = 0, j = 1; i < sumDays + startIndex - 1; i ++) {
         UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(30 + (spaceWidth + labelWidth) * (CGFloat)(i % 7),25 * (i / 7) , labelWidth, labelWidth)];
         label.textAlignment =  NSTextAlignmentCenter;
-        label.textColor = [UIColor blackColor];
+        label.textColor = self.normalTitleColor ?: [UIColor blackColor];
         label.font = [UIFont systemFontOfSize:9];
         [calendarView addSubview:label];
         
@@ -99,7 +99,8 @@
         //判断是否是当天,获取到当天的label
         if([[self getStringFromeDate:currentDate] isEqualToString:[self getStringFromeDate:todayDate]]){
             NSInteger dayInt = [self getIntergerFromDate:currentDate];
-            if(dayInt == j){
+            if(dayInt == i){
+                label.text = [NSString stringWithFormat:@"%d",i];
                 todayLabel = label;
                 self.isShowToday = _isShowToday ? YES : NO;
             }
@@ -133,7 +134,7 @@
     if(_isShowToday){
         todayLabel.layer.cornerRadius =  10;
         todayLabel.textColor = [UIColor whiteColor];
-        todayLabel.backgroundColor =  [UIColor orangeColor];
+        todayLabel.backgroundColor =  [UIColor redColor];
         todayLabel.clipsToBounds = YES;
     }
 }
@@ -260,7 +261,7 @@
         UILabel * endLabel = dayLabels[endIndex - 1];
         UIView * drawView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(startLabel.frame), 0, CGRectGetMaxX(endLabel.frame) - CGRectGetMinX(startLabel.frame), 20)];
         drawView.center = CGPointMake(drawView.center.x , startLabel.center.y + CGRectGetMinY(calendarView.frame));
-        drawView.backgroundColor = [UIColor yellowColor];
+        drawView.backgroundColor = self.lineColor ?: [UIColor orangeColor];
         drawView.layer.cornerRadius = 10;
         drawView.clipsToBounds = YES;
         [self addSubview:drawView];
@@ -270,7 +271,7 @@
     //将选中的label的textcolor设置为白色
     for(NSNumber * number in myData){
         UILabel * label = dayLabels[[number integerValue] - 1];
-        label.textColor = [UIColor whiteColor];
+        label.textColor = self.lineTitleColor ?: [UIColor whiteColor];
     }
     
 }
@@ -289,7 +290,7 @@
     CGRect  newFrame = CGRectMake(0, 0, size.width, size.height);
     label.frame = newFrame;
     label.center = center;
-    label.textColor = [UIColor whiteColor];
+    label.textColor = self.lineTitleColor ?: [UIColor whiteColor];
     label.text = title;
     label.backgroundColor = bColor;
     
